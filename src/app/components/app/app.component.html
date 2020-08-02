@@ -1,0 +1,14 @@
+<form [formGroup]="form">
+  <div>email:
+    <input type="text" formControlName="email">
+  </div>
+  <div *ngIf="form.controls.email.invalid">you mast input @email</div>
+  <div>password:
+    <input type="text" formControlName="password">
+    <div *ngIf="form.controls.password.invalid">input five symbols, pls.</div>
+  </div>
+  <div>
+    <input type="text" formControlName="confirm">
+  </div>
+  <button (click)="save(form)" [disabled]="form.invalid || form.hasError('passwordError')">save</button>
+</form>
