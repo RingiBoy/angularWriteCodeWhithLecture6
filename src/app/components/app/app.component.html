@@ -1,14 +1,34 @@
+<!--<form [formGroup]="form">-->
+<!--  <div>email:-->
+<!--    <input type="text" formControlName="email">-->
+<!--  </div>-->
+<!--  <div *ngIf="form.controls.email.invalid">you mast input @email</div>-->
+<!--  <div>password:-->
+<!--    <input type="text" formControlName="password">-->
+<!--    <div *ngIf="form.controls.password.invalid">input five symbols, pls.</div>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <input type="text" formControlName="confirm">-->
+<!--  </div>-->
+<!--  <button (click)="save(form)" [disabled]="form.invalid || form.hasError('passwordError')">save</button>-->
+<!--</form>-->
+
+i`m app component
 <form [formGroup]="form">
-  <div>email:
-    <input type="text" formControlName="email">
-  </div>
-  <div *ngIf="form.controls.email.invalid">you mast input @email</div>
-  <div>password:
-    <input type="text" formControlName="password">
-    <div *ngIf="form.controls.password.invalid">input five symbols, pls.</div>
-  </div>
   <div>
-    <input type="text" formControlName="confirm">
+    <div> select of Type:
+      <select formControlName="myselector" (change)="myChange($event)">
+        <option value="users">users</option>
+        <option value="posts">posts</option>
+      </select>
+      <br>
+      <input type="text" formControlName="myInput">
+    </div>
+    <!--    <button (click)="show(form.controls.myselector.value)">show ***-all</button>-->
+    <button (click)="show(form)">show ***-all</button>
+
   </div>
-  <button (click)="save(form)" [disabled]="form.invalid || form.hasError('passwordError')">save</button>
+
+
 </form>
+<router-outlet>
